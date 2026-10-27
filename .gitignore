@@ -2,3 +2,9 @@ venv/
 logs/
 MLOPS_PROJECT_3.egg-info/
 __pycache__/
+.astro/
+include/
+plugins/
+tests/
+Intialixation_steps.txt
+.DS_Store
