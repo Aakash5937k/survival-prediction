@@ -8,3 +8,7 @@ plugins/
 tests/
 Intialixation_steps.txt
 .DS_Store
+airflow.cfg
+airflow.db
+airflow-webserver.pid
+webserver_config.py
