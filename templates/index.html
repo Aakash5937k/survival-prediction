@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +6,6 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -17,174 +15,188 @@
 
 <body>
 
-    <div class="page-wrapper">
+<div class="page-wrapper">
 
-        <header class="header">
-            <div class="logo">T<span>P</span></div>
-            <div class="header-text">
-                <h2>Titanic Predictor</h2>
-                <p>Machine Learning Application</p>
-            </div>
-            <div class="status">
-                <span class="status-dot"></span>
-                Prediction System
-            </div>
-        </header>
+    <header class="header">
+        <div class="logo">T<span>P</span></div>
+        <div class="header-text">
+            <h2>Titanic Predictor</h2>
+            <p>Machine Learning Application</p>
+        </div>
+        <div class="status">
+            <span class="status-dot"></span>
+            Prediction System
+        </div>
+    </header>
 
-        <main class="container">
+    <main class="container">
 
-            <section class="hero">
-                <span class="tag">MACHINE LEARNING PROJECT</span>
-                <h1>Survival <span>Prediction</span></h1>
-                <p>
-                    Explore the power of machine learning.
-                    Enter passenger details below to predict the likelihood
-                    of survival on the Titanic.
-                </p>
-            </section>
+        <section class="hero">
+            <span class="tag">MACHINE LEARNING PROJECT</span>
+            <h1>Survival <span>Prediction</span></h1>
+            <p>
+                Explore the power of machine learning.
+                Enter passenger details below to predict the likelihood
+                of survival on the Titanic.
+            </p>
+        </section>
 
-            <section class="form-card">
+        <section class="form-card">
 
-                <div class="card-heading">
-                    <div>
-                        <h2>Passenger Information</h2>
-                        <p>Enter the passenger details accurately.</p>
-                    </div>
-                    <div class="user-icon">✦</div>
+            <div class="card-heading">
+                <div>
+                    <h2>Passenger Information</h2>
+                    <p>Enter the passenger details accurately.</p>
                 </div>
+                <div class="user-icon">✦</div>
+            </div>
 
-                <form action="/predict" method="POST" class="prediction-form">
+            <form action="/predict" method="POST" class="prediction-form">
 
-                    <div class="form-section">
-                        <h3>01. Basic Information</h3>
+                <!-- Basic Information -->
+                <div class="form-section">
+                    <h3>01. Basic Information</h3>
 
-                        <div class="form-grid">
+                    <div class="form-grid">
 
-                            <div class="form-group">
-                                <label for="Age">Age</label>
-                                <input type="number" step="0.01" id="Age" name="Age" placeholder="e.g. 25" min="0" max="120" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="Fare">Fare</label>
-                                <input type="number" step="0.01" id="Fare" name="Fare" placeholder="e.g. 35.50" min="0" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="Pclass">Passenger Class</label>
-                                <select id="Pclass" name="Pclass" required>
-                                    <option value="" disabled selected>Select class</option>
-                                    <option value="1">First Class</option>
-                                    <option value="2">Second Class</option>
-                                    <option value="3">Third Class</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="Sex">Gender</label>
-                                <select id="Sex" name="Sex" required>
-                                    <option value="" disabled selected>Select gender</option>
-                                    <option value="0">Male</option>
-                                    <option value="1">Female</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="Embarked">Port of Embarkation</label>
-                                <select id="Embarked" name="Embarked" required>
-                                    <option value="" disabled selected>Select port</option>
-                                    <option value="0">Cherbourg</option>
-                                    <option value="1">Queenstown</option>
-                                    <option value="2">Southampton</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="Familysize">Family Size</label>
-                                <input type="number" id="Familysize" name="Familysize" placeholder="e.g. 3" min="0" required>
-                            </div>
-
+                        <div class="form-group">
+                            <label for="Age">Age</label>
+                            <input type="number" step="0.01" id="Age" name="Age"
+                                   placeholder="e.g. 25" min="0" max="120" required>
                         </div>
-                    </div>
 
-                    <div class="form-section">
-                        <h3>02. Passenger Features</h3>
-
-                        <div class="form-grid">
-
-                            <div class="form-group">
-                                <label for="Isalone">Travelling Alone?</label>
-                                <select id="Isalone" name="Isalone" required>
-                                    <option value="" disabled selected>Select option</option>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="HasCabin">Cabin Available?</label>
-                                <select id="HasCabin" name="HasCabin" required>
-                                    <option value="" disabled selected>Select option</option>
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="Title">Passenger Title</label>
-                                <input type="number" id="Title" name="Title" placeholder="Encoded title" required>
-                            </div>
-
+                        <div class="form-group">
+                            <label for="Fare">Fare</label>
+                            <input type="number" step="0.01" id="Fare" name="Fare"
+                                   placeholder="e.g. 35.50" min="0" required>
                         </div>
-                    </div>
 
-                    <div class="form-section">
-                        <h3>03. Engineered Features</h3>
-
-                        <div class="form-grid">
-
-                            <div class="form-group">
-                                <label for="Pclass_Fare">Class × Fare</label>
-                                <input type="number" step="0.01" id="Pclass_Fare" name="Pclass_Fare" placeholder="Enter value" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="Age_Fare">Age × Fare</label>
-                                <input type="number" step="0.01" id="Age_Fare" name="Age_Fare" placeholder="Enter value" required>
-                            </div>
-
+                        <div class="form-group">
+                            <label for="Pclass">Passenger Class</label>
+                            <select id="Pclass" name="Pclass" required>
+                                <option value="" disabled selected>Select class</option>
+                                <option value="1">First Class</option>
+                                <option value="2">Second Class</option>
+                                <option value="3">Third Class</option>
+                            </select>
                         </div>
-                    </div>
 
-                    <button type="submit" class="btn">
-                        <span>Predict Survival</span>
-                        <span class="arrow">→</span>
-                    </button>
+                        <div class="form-group">
+                            <label for="Sex">Gender</label>
+                            <select id="Sex" name="Sex" required>
+                                <option value="" disabled selected>Select gender</option>
+                                <option value="0">Male</option>
+                                <option value="1">Female</option>
+                            </select>
+                        </div>
 
-                </form>
+                        <div class="form-group">
+                            <label for="Embarked">Port of Embarkation</label>
+                            <select id="Embarked" name="Embarked" required>
+                                <option value="" disabled selected>Select port</option>
+                                <option value="0">Cherbourg</option>
+                                <option value="1">Queenstown</option>
+                                <option value="2">Southampton</option>
+                            </select>
+                        </div>
 
-                <div class="prediction-result">
-                    <div class="result-icon">✦</div>
-                    <div>
-                        <h3>Prediction Result</h3>
+                        <div class="form-group">
+                            <label for="Familysize">Family Size</label>
+                            <input type="number" id="Familysize" name="Familysize"
+                                   placeholder="e.g. 3" min="0" required>
+                        </div>
 
-                        {% if prediction_text %}
-                            <p>{{ prediction_text }}</p>
-                        {% else %}
-                            <p class="empty-result">Your prediction will appear here after submission.</p>
-                        {% endif %}
                     </div>
                 </div>
 
-            </section>
+                <!-- Passenger Features -->
+                <div class="form-section">
+                    <h3>02. Passenger Features</h3>
 
-            <footer>
-                <p>Built with Machine Learning <span>♥</span> | Titanic Survival Prediction</p>
-            </footer>
+                    <div class="form-grid">
 
-        </main>
+                        <div class="form-group">
+                            <label for="Isalone">Travelling Alone?</label>
+                            <select id="Isalone" name="Isalone" required>
+                                <option value="" disabled selected>Select option</option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
 
-    </div>
+                        <div class="form-group">
+                            <label for="HasCabin">Cabin Available?</label>
+                            <select id="HasCabin" name="HasCabin" required>
+                                <option value="" disabled selected>Select option</option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Title">Passenger Title</label>
+                            <input type="number" id="Title" name="Title"
+                                   placeholder="Enter encoded title" required>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Engineered Features -->
+                <div class="form-section">
+                    <h3>03. Engineered Features</h3>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="Pclass_Fare">Pclass Fare</label>
+                            <input type="number" step="0.01"
+                                   id="Pclass_Fare" name="Pclass_Fare"
+                                   placeholder="Enter value" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Age_Fare">Age Fare</label>
+                            <input type="number" step="0.01"
+                                   id="Age_Fare" name="Age_Fare"
+                                   placeholder="Enter value" required>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">
+                    <span>Predict Survival</span>
+                    <span class="arrow">→</span>
+                </button>
+
+            </form>
+
+            <div class="prediction-result">
+                <div class="result-icon">✦</div>
+                <div>
+                    <h3>Prediction Result</h3>
+
+                    {% if prediction_text %}
+                        <p>{{ prediction_text }}</p>
+                    {% else %}
+                        <p class="empty-result">
+                            Your prediction will appear here after submission.
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+
+        </section>
+
+        <footer>
+            <p>Built with Machine Learning <span>♥</span> | Titanic Survival Prediction</p>
+        </footer>
+
+    </main>
+
+</div>
 
 </body>
 </html>
+```

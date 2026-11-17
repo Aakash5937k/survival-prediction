@@ -3,13 +3,13 @@ import numpy as np
 import pandas as pd
 from flask import Flask,render_template,request,jsonify
 from src.logger import get_logger
-#from alibi_detect.cd import KSDrift
-#from src.feature_store import RedisFeatureStore
-#from sklearn.preprocessing import StandardScaler
+from alibi_detect.cd import KSDrift
+from src.feature_store import RedisFeatureStore
+from sklearn.preprocessing import StandardScaler
 
 #from prometheus_client import start_http_server,Counter,Gauge
 
-#logger = get_logger(__name__)
+logger = get_logger(__name__)
 
 
 app = Flask(__name__ , template_folder="templates")
@@ -24,10 +24,10 @@ with open(MODEL_PATH , 'rb') as model_file:
 FEATURE_NAMES = ['Age', 'Fare', 'Pclass', 'Sex', 'Embarked', 'Familysize', 'Isalone',
        'HasCabin', 'Title', 'Pclass_Fare', 'Age_Fare']
 
-#feature_store = RedisFeatureStore()
-#scaler = StandardScaler()
+feature_store = RedisFeatureStore()
+scaler = StandardScaler()
 
-'''def fit_scaler_on_ref_data():
+def fit_scaler_on_ref_data():
     entity_ids = feature_store.get_all_entity_ids()
     all_features = feature_store.get_batch_features(entity_ids)
 
@@ -38,7 +38,7 @@ FEATURE_NAMES = ['Age', 'Fare', 'Pclass', 'Sex', 'Embarked', 'Familysize', 'Isal
 
 
 historical_data = fit_scaler_on_ref_data()
-ksd = KSDrift(x_ref=historical_data , p_val=0.05) '''
+ksd = KSDrift(x_ref=historical_data , p_val=0.05) 
 
 
 @app.route('/')
@@ -64,7 +64,7 @@ def predict():
 
         features = pd.DataFrame([[Age,Fare,Pclass,Sex,Embarked,Familysize,Isalone,HasCabin,Title,Pclass_Fare,Age_Fare]] , columns=FEATURE_NAMES)
 
-        '''##### Data Drift Detection
+        ##### Data Drift Detection
         features_scaled = scaler.transform(features)
 
         drift = ksd.predict(features_scaled)
@@ -77,7 +77,7 @@ def predict():
             print("Drift Detected....")
             logger.info("Drift Detected....")
 
-            drift_count.inc()'''
+            #drift_count.inc()
 
 
         prediction = model.predict(features)[0]
