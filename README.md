@@ -148,17 +148,3 @@ Default local service addresses:
 | Airflow | http://localhost:8080 |
 | Prometheus | http://localhost:9090 |
 | Grafana | http://localhost:3000 |
-
-## Docker Hub
-
-The custom Airflow Docker image is available on Docker Hub:
-
-**Repository:** `aakash11m/titanic-airflow`
-
-Pull the image using:
-
-```bash
-docker pull aakash11m/titanic-airflow:latest
-```
-
-The image contains the built environment, but the project files, configuration, and external data services may still need to be provided separately.
